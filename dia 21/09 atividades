@@ -1,0 +1,387 @@
+atividade 3
+
+  class SistemaOperacional:
+    def __init__(self, nome, versao):
+        self.nome = nome
+        self.versao = versao
+
+    def __str__(self):
+        return f"Sistema Operacional: {self.nome}, Versão: {self.versao}"
+
+class Computador:
+    def __init__(self, sistema):
+        self.sistema = sistema
+
+    def __str__(self):
+        return f"Computador com {self.sistema}"
+
+# Exemplo de uso:
+sistema_windows = SistemaOperacional("Windows", "10")
+meu_computador = Computador(sistema_windows)
+
+print(meu_computador)  # Isso imprimirá: Computador com Sistema Operacional: Windows, Versão: 10
+
+
+  atividade 4
+
+  class Autor:
+    def __init__(self, nome, data_nascimento):
+        self.nome = nome
+        self.data_nascimento = data_nascimento
+
+    def __str__(self):
+        return f"Autor: {self.nome}, Data de Nascimento: {self.data_nascimento}"
+
+class Livro:
+    def __init__(self, titulo, autor):
+        self.titulo = titulo
+        self.autor = autor
+
+    def __str__(self):
+        return f"Livro: {self.titulo}, Autor: {self.autor}"
+
+# Exemplo de uso:
+autor_jane_doe = Autor("Jane Doe", "01/01/1980")
+livro_1 = Livro("Meu Livro", autor_jane_doe)
+
+print(livro_1)  # Isso imprimirá: Livro: Meu Livro, Autor: Autor: Jane Doe, Data de Nascimento: 01/01/1980
+
+
+  atividade 5
+
+  class Motor:
+    def __init__(self, tipo, potencia):
+        self.tipo = tipo
+        self.potencia = potencia
+
+    def __str__(self):
+        return f"Motor: {self.tipo}, Potência: {self.potencia} cavalos"
+
+class Carro:
+    def __init__(self, motor):
+        self.motor = motor
+
+    def __str__(self):
+        return f"Carro com {self.motor}"
+
+# Exemplo de uso:
+motor_gasolina = Motor("Gasolina", 150)
+meu_carro = Carro(motor_gasolina)
+
+print(meu_carro)  # Isso imprimirá: Carro com Motor: Gasolina, Potência: 150 cavalos
+
+
+
+  atividade 7
+
+  class Documento:
+    def __init__(self, titulo, conteudo):
+        self.titulo = titulo
+        self.conteudo = conteudo
+
+    def exibir(self):
+        return f"Título: {self.titulo}, Conteúdo: {self.conteudo}"
+
+class Email(Documento):
+    def __init__(self, titulo, conteudo, remetente, destinatario):
+        super().__init__(titulo, conteudo)
+        self.remetente = remetente
+        self.destinatario = destinatario
+
+    def exibir(self):
+        base_info = super().exibir()
+        return f"{base_info}, Remetente: {self.remetente}, Destinatário: {self.destinatario}"
+
+class Relatorio(Documento):
+    def __init__(self, titulo, conteudo, data):
+        super().__init__(titulo, conteudo)
+        self.data = data
+
+    def exibir(self):
+        base_info = super().exibir()
+        return f"{base_info}, Data: {self.data}"
+
+# Exemplo de uso:
+if __name__ == "__main__":
+    documento = Documento("Documento Genérico", "Este é um documento genérico.")
+    email = Email("Email Importante", "Conteúdo confidencial", "remetente@email.com", "destinatario@email.com")
+    relatorio = Relatorio("Relatório Mensal", "Dados financeiros", "01/09/2023")
+
+    print(documento.exibir())
+    print(email.exibir())
+    print(relatorio.exibir())
+
+      atividade 8
+
+      class Produto:
+    def __init__(self, nome, preco):
+        self.nome = nome
+        self.preco = preco
+
+    def desconto(self, percentual):
+        desconto = (percentual / 100) * self.preco
+        novo_preco = self.preco - desconto
+        return novo_preco
+
+class Livro(Produto):
+    def __init__(self, nome, preco, autor):
+        super().__init__(nome, preco)
+        self.autor = autor
+
+    def desconto(self, percentual):
+        # Aplica o desconto geral do produto e mais 10%
+        desconto_produto = super().desconto(percentual)
+        desconto_adicional = (10 / 100) * desconto_produto
+        novo_preco = desconto_produto - desconto_adicional
+        return novo_preco
+
+class Jogo(Produto):
+    def __init__(self, nome, preco, plataforma):
+        super().__init__(nome, preco)
+        self.plataforma = plataforma
+
+# Exemplo de uso:
+produto1 = Produto("Produto Genérico", 100)
+livro1 = Livro("Livro Interessante", 50, "Autor Desconhecido")
+jogo1 = Jogo("Jogo Divertido", 60, "PS5")
+
+print(f"Preço do Produto: R${produto1.desconto(10):.2f}")
+print(f"Preço do Livro: R${livro1.desconto(10):.2f}")
+print(f"Preço do Jogo: R${jogo1.desconto(10):.2f}")
+
+  atividade 8
+
+  class Produto:
+    def __init__(self, nome, preco):
+        self.nome = nome
+        self.preco = preco
+
+    def desconto(self, percentual):
+        desconto = (percentual / 100) * self.preco
+        novo_preco = self.preco - desconto
+        return novo_preco
+
+class Livro(Produto):
+    def __init__(self, nome, preco, autor):
+        super().__init__(nome, preco)
+        self.autor = autor
+
+    def desconto(self, percentual):
+        # Aplica o desconto geral do produto e mais 10%
+        desconto_produto = super().desconto(percentual)
+        desconto_adicional = (10 / 100) * desconto_produto
+        novo_preco = desconto_produto - desconto_adicional
+        return novo_preco
+
+class Jogo(Produto):
+    def __init__(self, nome, preco, plataforma):
+        super().__init__(nome, preco)
+        self.plataforma = plataforma
+
+# Exemplo de uso:
+produto1 = Produto("Produto Genérico", 100)
+livro1 = Livro("Livro Interessante", 50, "Autor Desconhecido")
+jogo1 = Jogo("Jogo Divertido", 60, "PS5")
+
+print(f"Preço do Produto: R${produto1.desconto(10):.2f}")
+print(f"Preço do Livro: R${livro1.desconto(10):.2f}")
+print(f"Preço do Jogo: R${jogo1.desconto(10):.2f}")
+
+
+  atividade 9
+
+  class ContaBancaria:
+    def __init__(self, titular, saldo):
+        self.titular = titular
+        self.saldo = saldo
+
+    def depositar(self, valor):
+        self.saldo += valor
+
+    def sacar(self, valor):
+        if valor <= self.saldo:
+            self.saldo -= valor
+            return True
+        else:
+            return False
+
+class ContaPoupanca(ContaBancaria):
+    def sacar(self, valor):
+        taxa = 2
+        if super().sacar(valor + taxa):
+            return True
+        else:
+            return False
+
+class ContaCorrente(ContaBancaria):
+    def __init__(self, titular, saldo, limite):
+        super().__init__(titular, saldo)
+        self.limite = limite
+
+    def sacar(self, valor):
+        if valor <= (self.saldo + self.limite):
+            self.saldo -= valor
+            return True
+        else:
+            return False
+
+# Exemplo de uso:
+conta_poupanca = ContaPoupanca("João", 1000)
+conta_corrente = ContaCorrente("Maria", 2000, 1000)
+
+print(f"Saldo da Conta Poupança de {conta_poupanca.titular}: R${conta_poupanca.saldo:.2f}")
+conta_poupanca.depositar(500)
+print(f"Novo saldo após depósito: R${conta_poupanca.saldo:.2f}")
+
+print(f"Saldo da Conta Corrente de {conta_corrente.titular}: R${conta_corrente.saldo:.2f}")
+if conta_corrente.sacar(2500):
+    print("Saque de R$2500 realizado com sucesso!")
+else:
+    print("Saque de R$2500 não autorizado.")
+
+
+  atividade 10
+
+  class Publicacao:
+    def __init__(self, titulo, ano_publicacao):
+        self.titulo = titulo
+        self.ano_publicacao = ano_publicacao
+
+    def descricao(self):
+        return f"Título: {self.titulo}, Ano de Publicação: {self.ano_publicacao}"
+
+class Livro(Publicacao):
+    def __init__(self, titulo, ano_publicacao, autor, numero_paginas):
+        super().__init__(titulo, ano_publicacao)
+        self.autor = autor
+        self.numero_paginas = numero_paginas
+
+    def descricao(self):
+        descricao_publicacao = super().descricao()
+        return f"{descricao_publicacao}, Autor: {self.autor}, Número de Páginas: {self.numero_paginas}"
+
+class Revista(Publicacao):
+    def __init__(self, titulo, ano_publicacao, editora, edicao):
+        super().__init__(titulo, ano_publicacao)
+        self.editora = editora
+        self.edicao = edicao
+
+    def descricao(self):
+        descricao_publicacao = super().descricao()
+        return f"{descricao_publicacao}, Editora: {self.editora}, Edição: {self.edicao}"
+
+# Exemplo de uso:
+livro = Livro("Aventuras de Python", 2020, "John Python", 300)
+revista = Revista("Python Today", 2022, "TechPress", "Edição de Verão")
+
+print(livro.descricao())
+print(revista.descricao())
+
+  atividade 11
+
+  class Veiculo:
+    def __init__(self, cor, preco):
+        self.cor = cor
+        self.preco = preco
+
+    def detalhes(self):
+        return f"Cor: {self.cor}, Preço: R${self.preco:.2f}"
+
+class Carro(Veiculo):
+    def __init__(self, cor, preco, numero_portas):
+        super().__init__(cor, preco)
+        self.numero_portas = numero_portas
+
+    def detalhes(self):
+        detalhes_veiculo = super().detalhes()
+        return f"{detalhes_veiculo}, Número de Portas: {self.numero_portas}"
+
+class Bicicleta(Veiculo):
+    def __init__(self, cor, preco, tipo):
+        super().__init__(cor, preco)
+        self.tipo = tipo
+
+    def detalhes(self):
+        detalhes_veiculo = super().detalhes()
+        return f"{detalhes_veiculo}, Tipo: {self.tipo}"
+
+# Exemplo de uso:
+carro = Carro("Azul", 25000, 4)
+bicicleta = Bicicleta("Vermelha", 500, "Montanha")
+
+print(carro.detalhes())
+print(bicicleta.detalhes())
+
+
+  atividade 12
+
+  mkdir meu_projeto
+cd meu_projeto
+
+
+
+python -m venv venv
+
+
+
+venv\Scripts\activate
+
+
+source venv/bin/activate
+
+pip install numpy
+
+
+
+# matriz.py
+import numpy as np
+
+# Cria uma matriz 3x3 com valores de 1 a 9
+matriz = np.arange(1, 10).reshape(3, 3)
+
+# Percorre e imprime cada elemento da matriz
+for linha in matriz:
+    for elemento in linha:
+        print(elemento, end=' ')
+    print()  # Para pular para a próxima linha
+
+
+
+python matriz.py
+
+
+
+venv\Scripts\activate
+
+
+
+source venv/bin/activate
+
+
+
+deactivate
+
+
+  atividade 13
+
+  # funcoes.py
+
+def mensagem():
+    return "Olá, Mundo!"
+
+
+
+# principal.py
+from funcoes import mensagem
+
+def main():
+    resultado = mensagem()
+    print(resultado)
+
+if __name__ == "__main__":
+    main()
+
+
+  
+
+  
